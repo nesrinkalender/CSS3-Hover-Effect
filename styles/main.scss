@@ -1,0 +1,64 @@
+@mixin transition($transition) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+          transition: $transition;
+}
+@mixin transition-delay($delay) {
+  -webkit-transition-delay: $delay;
+     -moz-transition-delay: $delay;
+      -ms-transition-delay: $delay;
+          transition-delay: $delay;
+}
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-weight:300;
+}
+a {
+			margin: 0;
+			padding: 0;
+			width: 311px;
+			height: 400px;
+			display: inline-block;
+			position:relative;
+			letter-spacing: normal;
+			line-height: initial;
+					img {
+					width: 100%;
+					height: auto;
+					float: left;
+					}
+					span {
+					background-color: rgba(0, 0, 0, 0.5);
+					width: 100%;
+					margin-left: -100%;
+					position: absolute;
+					display: inline;
+            height: 206px;
+            z-index: 80;
+					color:#fff;
+					opacity: 0;
+					@include transition( opacity .2s ease-out);
+            @include transition-delay( .25s);
+						&:hover{
+							opacity: 1;
+							@include transition(opacity .2s ease-out);
+						}
+						&:hover p{
+							opacity: 1;
+							bottom: 15px;
+							@include transition( all .2s ease-out);
+							@include transition-delay( .25s);
+						}
+						p{
+							position:absolute;
+							width:100%;
+							text-align: center;
+                 opacity: 0;
+                 bottom: 0;
+                 display: block;
+                 @include transition( all .2s ease-out);
+						}
+				}
+
+		}
